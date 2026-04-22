@@ -1,0 +1,159 @@
+"""
+Nombre : sundury mairim virgen vazquez
+Grupo  : 2-I CSDSI
+Fecha  : 22/04/2026
+"""
+
+#-------------------------------------------------------------------------#
+#Escribir un metodo que acepte el porcentaje de un alumno y evalue el grado de acuerdo al siguiente criterio
+#Calificacion	Grado
+#   >90				A
+#   >80 y <= 90		B
+#   >=60 y <=80		C
+#   menor a 60		D
+
+def evaluar_calificacion(porcentaje):
+    if porcentaje > 90:
+        return "A"
+    elif porcentaje > 80 and porcentaje <= 90:
+        return "B"
+    elif porcentaje >= 60 and porcentaje <= 80:
+        return "C"
+    else:
+        return "D"
+
+#-------------------------------------------------------------------------#
+#Escribir un metodo que capture el precio de una bicicleta y muestre los impuestos que debe pagar siguiendo los criterios siguientes:
+# Costo					Impuesto
+# >100000				15%
+# >50000 y <= 100000	10% 
+#<=50000				 5%
+
+def calcular_impuesto(precio):
+    if precio > 100000:
+        impuesto = precio * 0.15
+    elif precio > 50000 and precio <= 100000:
+        impuesto = precio * 0.10
+    else:
+        impuesto = precio * 0.05
+    return impuesto
+
+#-------------------------------------------------------------------------#
+#Escribir un metodo que verifique si un año es bisiesto o no
+
+def es_bisiesto(anio):
+    if (anio % 4 == 0 and anio % 100 != 0) or (anio % 400 == 0):
+        return True
+    else:
+        return False
+
+#-------------------------------------------------------------------------#
+#Escribir un metodo que capture un numero del 1 al 7 y muestre el nombre del dia de la semana
+#Por ejemplo el 1 seria Domingo y el 2 Lunes
+
+def dia_semana(numero):
+    dias = {
+        1: "Domingo",
+        2: "Lunes",
+        3: "Martes",
+        4: "Miércoles",
+        5: "Jueves",
+        6: "Viernes",
+        7: "Sábado"
+    }
+    return dias.get(numero, "Número inválido")
+
+#-------------------------------------------------------------------------#
+#Escribir un metodo que acepte un numero del 1 al 12 y muestre el nombre del mes asi como los dias que contiene
+#Ejemplo 1 seria Enero tiene 31 dias
+
+def nombre_mes(numero):
+    meses = {
+        1: ("Enero", 31),
+        2: ("Febrero", 28),
+        3: ("Marzo", 31),
+        4: ("Abril", 30),
+        5: ("Mayo", 31),
+        6: ("Junio", 30),
+        7: ("Julio", 31),
+        8: ("Agosto", 31),
+        9: ("Septiembre", 30),
+        10: ("Octubre", 31),
+        11: ("Noviembre", 30),
+        12: ("Diciembre", 31)
+    }
+    nombre, dias = meses.get(numero, (None, None))
+    if nombre:
+        return f"{nombre} tiene {dias} días"
+    else:
+        return "Número inválido"
+
+#-------------------------------------------------------------------------#
+#Escribir un programa que imprima los primeros 10 numeros naturales
+
+def imprimir_naturales():
+    print("Primeros 10 números naturales:")
+    for i in range(1, 11):
+        print(i, end=" ")
+    print()
+
+#-------------------------------------------------------------------------#
+#Escibir un programa que imprima los primeros 10 numeros impares
+
+def imprimir_impares():
+    print("Primeros 10 números impares:")
+    contador = 0
+    num = 1
+    while contador < 10:
+        print(num, end=" ")
+        num += 2
+        contador += 1
+    print()
+
+#-------------------------------------------------------------------------#
+#Escribir un programa que imprima los primeros 10 numeros naturales en orden descendente
+
+def imprimir_descendente():
+    print("Números en orden descendente:")
+    for i in range(10, 0, -1):
+        print(i, end=" ")
+    print()
+
+#-------------------------------------------------------------------------#
+#Escribir un programa que escriba la tabla de multiplicar de un numero especificado por el usuario
+
+def tabla_multiplicar(num):
+    print(f"Tabla de multiplicar del {num}:")
+    for i in range(1, 11):
+        print(f"{num} x {i} = {num * i}")
+
+#-------------------------------------------------------------------------#
+#Escribir un programa que escriba el producto de los digitos de un numero especificado por el usuario
+
+def producto_digitos(numero):
+    producto = 1
+    for digito in str(numero):
+        producto *= int(digito)
+    return producto
+
+#-------------------------------------------------------------------------#
+# EJECUCIÓN Y PRUEBAS
+#-------------------------------------------------------------------------#
+
+print("=== PRUEBA DE EJERCICIOS ===")
+print("\n1. Calificación:", evaluar_calificacion(85))
+print("2. Impuesto a pagar:", calcular_impuesto(60000))
+print("3. ¿Es 2024 bisiesto?", "Sí" if es_bisiesto(2024) else "No")
+print("4. Día de la semana:", dia_semana(2))
+print("5. Mes:", nombre_mes(11))
+
+print("\n--- Ciclos ---")
+imprimir_naturales()
+imprimir_impares()
+imprimir_descendente()
+
+print("\n--- Tabla de multiplicar ---")
+tabla_multiplicar(5)
+
+print("\n--- Producto de dígitos ---")
+print("Producto de dígitos 252:", producto_digitos(252))
